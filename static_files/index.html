@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
 
 <h1>Welcome to orfcorp.tk!</h1>
 
-<p>Here's the current iime</p>
+<p>Here's the current time</p>
 
-<iframe src="http://free.timeanddate.com/clock/i6ip6ro3/n234" frameborder="0" width="114" height="18"></iframe>
+<div id="txt"></div>i
 
 </body>
 </html>
